@@ -69,7 +69,7 @@ export default {
         logout() {
             this.$store.commit('setUser', null);
             // 跳转到首页
-            this.$router.redirect('/');
+            this.$router.push('/');
         },
 
         async getUser() {

@@ -5,7 +5,7 @@
         <textarea class="form-control" v-model="commentBody" placeholder="Write a comment..." rows="3"></textarea>
       </div>
       <div class="card-footer">
-        <img :src="user.image" class="comment-author-img" />
+        <img :src="user && user.image" class="comment-author-img" />
         <button class="btn btn-sm btn-primary" @click.prevent="postComment">
           Post Comment
         </button>
@@ -51,6 +51,12 @@ export default {
             type: Object,
             required: true,
         },
+    },
+    async asyncData({ params }) {
+        const { data } = await getComments(this.article.slug);
+        return {
+            comments: data.comments,
+        };
     },
     data() {
         return {

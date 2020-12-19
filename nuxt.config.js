@@ -5,6 +5,7 @@
 module.exports = {
   target: 'static',
   router: {
+    base: '/realworlddemo/',
     linkActiveClass: 'active',
     // 自定义路由表规则
     extendRoutes(routes, resolve) {
